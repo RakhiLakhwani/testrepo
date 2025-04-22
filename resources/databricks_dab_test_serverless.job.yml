@@ -1,0 +1,18 @@
+# The main job for databricks_dab_test.
+resources:
+  jobs:
+    databricks_dab_serverless_job:
+      name: databricks_dabs_demo_serverless_job_${bundle.target}
+      tasks:
+        - task_key: serverless_demo_dev_task
+          spark_python_task:
+            python_file: ../src/databricks_dab_test/main.py
+          environment_key: develop
+      tags: 
+          dev: develop
+      environments:
+        - environment_key: develop
+          spec:   
+            client: "1"
+            dependencies: 
+              - pytest

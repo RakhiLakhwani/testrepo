@@ -1,0 +1,29 @@
+# This is a Databricks asset bundle definition for databricks_dab_test.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: databricks_dab_test
+  uuid: 806bb7b6-b7ca-44ae-ae34-f301f9607ea3
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-3421408431632761.1.azuredatabricks.net
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-3421408431632761.1.azuredatabricks.net
+      # We explicitly deploy to /Workspace/Users/dpatel@cavallotechnologies.ca to make sure we only have a single copy.
+      root_path: /Workspace/Users/dpatel@cavallotechnologies.ca/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: dpatel@cavallotechnologies.ca
+        level: CAN_MANAGE

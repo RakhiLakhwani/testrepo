@@ -1,0 +1,14 @@
+# A pipeline that runs on serverless compute
+resources:
+  pipelines:
+    databricks_dab_test_serverless_pipeline:
+      name: databricks_dab_test_serverless_pipeline
+      target: databricks_dab_test_${bundle.target}
+      serverless: true
+      catalog: cavallo_dev
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src

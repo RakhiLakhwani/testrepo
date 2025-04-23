@@ -5,12 +5,10 @@ concurrency: 1
 on:
   workflow_dispatch:
 
-  pull_request:
-    types:
-      - opened
-      - synchronize
-    branches:
-      - develop
+  push:
+     branches:
+       - develop
+       
     paths:
       - "**/*.yml"
       - "**/*.py"

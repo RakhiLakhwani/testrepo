@@ -51,7 +51,14 @@ jobs:
         name: Run pipeline update
         run: |
           set -o pipefail
-          databricks bundle run --refresh-all 2>&1 | tee output.log
-        env:
+
+          keys=("databricks_dab_test_serverless_job" "databricks_dab_test_serverless_pipel")
+
+          for key in "${keys[@]}"; do
+            echo "Running: $key"
+            databricks bundle run "$key" --refresh-all 2>&1 | tee "output_${key}.log"
+          done
+
+        env: 
           DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
           DATABRICKS_BUNDLE_ENV: dev

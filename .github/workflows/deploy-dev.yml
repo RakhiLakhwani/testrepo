@@ -6,12 +6,12 @@ on:
   workflow_dispatch:
 
   push:
-     branches:
-       - develop
-       
+    branches:
+      - develop
     paths:
       - "**/*.yml"
       - "**/*.py"
+      - "**/*.ipynb"
 
 jobs:
   deploy:

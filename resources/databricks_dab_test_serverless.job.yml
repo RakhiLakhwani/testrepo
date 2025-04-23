@@ -1,7 +1,7 @@
 # The main job for databricks_dab_test.
 resources:
   jobs:
-    databricks_dab_serverless_job:
+    databricks_dab_test_serverless_job:
       name: databricks_dabs_demo_serverless_job_${bundle.target}
       tasks:
         - task_key: serverless_demo_dev_task
@@ -16,3 +16,7 @@ resources:
             client: "1"
             dependencies: 
               - pytest
+
+targets:
+  dev:
+    default: true

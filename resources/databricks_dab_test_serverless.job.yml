@@ -16,3 +16,7 @@ resources:
             client: "1"
             dependencies: 
               - pytest
+
+targets:
+  dev:
+    default: true

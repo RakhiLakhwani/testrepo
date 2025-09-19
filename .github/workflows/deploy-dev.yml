@@ -25,12 +25,12 @@ jobs:
 
       - run: databricks bundle validate
         env:
-          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
       - run: databricks bundle deploy 
         env:
-          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
   pipeline_update:
@@ -58,5 +58,5 @@ jobs:
           done
 
         env: 
-          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}

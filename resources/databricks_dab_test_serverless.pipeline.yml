@@ -5,7 +5,7 @@ resources:
       name: databricks_dab_test_serverless_pipeline
       target: databricks_dab_test_${bundle.target}
       serverless: true
-      catalog: cavallo_dev
+      catalog: dabs
       libraries:
         - notebook:
             path: ../src/dlt_pipeline.ipynb

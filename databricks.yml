@@ -16,14 +16,14 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://adb-3421408431632761.1.azuredatabricks.net
+      host: https://dbc-dd4780bb-70c1.cloud.databricks.com
 
-  prod:
-    mode: production
-    workspace:
-      host: https://adb-3421408431632761.1.azuredatabricks.net
-      # We explicitly deploy to /Workspace/Users/dpatel@cavallotechnologies.ca to make sure we only have a single copy.
-      root_path: /Workspace/Users/dpatel@cavallotechnologies.ca/.bundle/${bundle.name}/${bundle.target}
-    permissions:
-      - user_name: dpatel@cavallotechnologies.ca
-        level: CAN_MANAGE
+  # prod:
+  #   mode: production
+  #   workspace:
+  #     host: https://dbc-dd4780bb-70c1.cloud.databricks.com
+  #     # We explicitly deploy to /Workspace/Users/dpatel@cavallotechnologies.ca to make sure we only have a single copy.
+  #     root_path: /Workspace/Users/
+  #   permissions:
+  #     - user_name: 
+  #       level: CAN_MANAGE

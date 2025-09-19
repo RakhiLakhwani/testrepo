@@ -25,15 +25,13 @@ jobs:
 
       - run: databricks bundle validate
         env:
-          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
-          DATABRICKS_BUNDLE_ENV: dev
-          DATABRICKS_PROFILE: dab-sp
+          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
       - run: databricks bundle deploy 
         env:
-          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
-          DATABRICKS_BUNDLE_ENV: dev
-          DATABRICKS_PROFILE: dab-sp
+          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
   pipeline_update:
     name: "Run pipeline update"
@@ -60,5 +58,5 @@ jobs:
           done
 
         env: 
-          DATABRICKS_TOKEN: ${{ secrets.SP_TOKEN }}
-          DATABRICKS_BUNDLE_ENV: dev
+          DATABRICKS_TOKEN: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
